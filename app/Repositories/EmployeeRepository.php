@@ -24,6 +24,7 @@ class EmployeeRepository
 
     public function getAll(){
         $employees = User::with('userDetails')->with('userDetails.department')->where('role_id','!=',1)->get();
+        $data = array();
         foreach($employees as $key=>$value){
             $data[$key]['id'] = $value->id;
             $data[$key]['name'] = $value->name;
